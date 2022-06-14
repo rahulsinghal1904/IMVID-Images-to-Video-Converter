@@ -5,6 +5,6 @@ $('#siteNav').affix({
 	}
 })
 $("#SubmitButton").submit( function() {
-    $('body').scrollTo('#result',{duration:2000});
+    $('body').scrollTo('#video',{duration:2000});
     return false;
 });
