@@ -18,53 +18,6 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
   
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
-import cv2
-
-def resize(img_array, align_mode):
-    
-    _height = len(img_array[0])
-    _width = len(img_array[0][0])
-    for i in range(1, len(img_array)):
-        img = img_array[i]
-        height = len(img)
-        width = len(img[0])
-        if align_mode == 'smallest':
-            if height < _height:
-                _height = height
-            if width < _width:
-                _width = width
-        else:
-            if height > _height:
-                _height = height
-            if width > _width:
-                _width = width
- 
-    for i in range(0, len(img_array)):
-        img1 = cv2.resize(img_array[i], (_width, _height), interpolation=cv2.INTER_CUBIC)
-        img_array[i] = img1
- 
-    return img_array, (_width, _height)
-
-def images_to_video(images, video_file):
-    # make all image size is same
-    img_array = []
-    for i in images:
-        img = cv2.imread(i)
-        if img is None:
-            continue
-        img_array.append(img)
-    img_array, size = resize(img_array, 'largest')
-    fps = 0.20
-
-    out = cv2.VideoWriter(video_file, cv2.VideoWriter_fourcc(*'mp4v'), fps, size)
- 
-
-    for i in range(len(img_array)):
-        out.write(img_array[i])
-
-
-    out.release()
-
 
 
 def allowed_file(filename):
