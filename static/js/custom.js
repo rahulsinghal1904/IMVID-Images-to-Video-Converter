@@ -4,7 +4,8 @@ $('#siteNav').affix({
 		top: 100
 	}
 })
-$("#SubmitButton").submit( function() {
-    $('body').scrollTo('#video',{duration:2000});
-    return false;
+$("#SeeVideo").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#video").offset().top
+    }, 2000);
 });
