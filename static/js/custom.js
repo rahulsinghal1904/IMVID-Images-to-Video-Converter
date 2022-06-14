@@ -4,3 +4,7 @@ $('#siteNav').affix({
 		top: 100
 	}
 })
+$("#SubmitButton").submit( function() {
+    $('body').scrollTo('#result',{duration:2000});
+    return false;
+});
