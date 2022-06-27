@@ -2,23 +2,47 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <!-- Bootstrap Core CSS -->
+    <link type="text/css" href= {{ url_for("static",filename="css/bootstrap.min.css") }} rel="stylesheet">
+
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link type="text/css" href= {{ url_for("static",filename="css/custom.css") }} rel="stylesheet">
+
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <title>Register</title>
 </head>
 
 <body>
     <h1>Register Page</h1>
-
+    <br>
     <form method="POST" action="">
         {{ form.hidden_tag() }}
         {{ form.username }}
         {{ form.password }}
         {{ form.submit }}
     </form>
+    <br>
+    <a href="{{ url_for('login') }}">Already have an account? Log In</a><br>
 
-    <a href="{{ url_for('login') }}">Already have an account? Log In</a>
+    <a href="{{ url_for('register') }}">Don't have an account? Sign Up</a>
+  <!-- jQuery -->
+    <script src= {{ url_for("static",filename="js/jquery-1.11.3.min.js") }}></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src= {{ url_for("static",filename="js/bootstrap.min.js") }}></script>
+
+    <!-- Plugin JavaScript -->
+    <script src= {{ url_for("static",filename="js/jquery.easing.min.js") }}></script>
+    
+    <!-- Custom Javascript -->
+    <script src= {{ url_for("static",filename="js/custom.js") }}></script>
 </body>
 
 </html>
