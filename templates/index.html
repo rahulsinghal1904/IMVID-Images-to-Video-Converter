@@ -47,7 +47,11 @@
                     </li>
                     
                     <li>
-                        <a href="#contact">Contact</a>
+                        <a href="{{ url_for('login') }}">Login Page</a><br>
+    
+                    </li>
+                    <li>
+                    <a href="{{ url_for('register') }}">Register Page</a><br>
                     </li>
                 </ul>
                 
@@ -110,21 +114,7 @@
     </section>    
 
     
-    <!-- Footer -->
-    <footer class="page-footer">
-    
-        <!-- Contact Us -->
-        <div id="contact" class="contact">
-            <div class="container">
-                <h2 class="section-heading">Contact Us</h2>
-         
-                <p><span class="glyphicon glyphicon-envelope"></span><br> rahulsinghal1904@gmail.com</p>
-            </div>
-        </div>
-            
-      
-        
-    </footer>
+ 
 
     <!-- jQuery -->
     <script src= {{ url_for("static",filename="js/jquery-1.11.3.min.js") }}></script>
