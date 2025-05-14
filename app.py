@@ -1,5 +1,5 @@
 
-from flask import Flask, flash, request, redirect, url_for, render_template,redirect,send_file
+from flask import Flask, flash, request, redirect, url_for, render_template,redirect
 import urllib.request
 import os
 import sys
@@ -13,6 +13,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError
 from flask_bcrypt import Bcrypt
+import flask
+from pathlib import Path
 
 app = Flask(__name__)
   
@@ -156,7 +158,7 @@ def register():
 @app.route('/download')
 def download_file():
     p="./static/uploads/cvideo.mp4"
-    return send_file(p,as_attachment=True)
+    return flask.send_from_directory((p_1 := Path(p)).parent, p_1.name, as_attachment=True)
   
 if __name__ == "__main__":
     app.run(threaded=True)
